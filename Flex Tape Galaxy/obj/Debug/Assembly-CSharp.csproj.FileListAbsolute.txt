@@ -1,0 +1,2 @@
+C:\Users\tanne\Documents\Unity Repos\Flex Tape Galaxy\Flex Tape Galaxy\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\tanne\Documents\Unity Repos\Flex Tape Galaxy\Flex Tape Galaxy\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
