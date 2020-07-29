@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GravityAttractor : MonoBehaviour //The planet attracting objects when they're in the gravity field
-{ //credit to Xananax on github for writing all this gravity code, I suck at physics.
+{ 
 
-    [SerializeField] float gravity = 9.8f;
+    [SerializeField] float gravity = 9.8f; //dont worry neither of these variables actually do anything
     [SerializeField] float rotationSmoothness = 5f;
     public enum planetTypes //drop down list
     {

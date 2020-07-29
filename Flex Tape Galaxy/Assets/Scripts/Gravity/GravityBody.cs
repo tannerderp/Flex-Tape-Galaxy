@@ -5,6 +5,7 @@ using UnityEngine;
 public class GravityBody : MonoBehaviour
 {
     [SerializeField] GravityAttractor attractor;
+    [SerializeField] private bool isPlayer = false;
     private Transform myTransform;
     private Rigidbody2D rigidbody;
 
@@ -19,13 +20,33 @@ public class GravityBody : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!GetComponent<PlayerMovement>().flying && !(GetComponent<PlayerMovement>().IsGrounded() && attractor.planetType == GravityAttractor.planetTypes.rectangle))
+        bool pissOff = false; //i hate every bit of this fixed updates. Why did I have to have this many if statements just so the enemies and player can have the same script for physics.
+        bool doAttract = true;
+        if (isPlayer)
+        {
+            if(!GetComponent<PlayerMovement>().flying)
+            {
+                pissOff = true;
+                if (attractor && !(attractor.planetType != GravityAttractor.planetTypes.rectangle || (isPlayer && attractor.planetType == GravityAttractor.planetTypes.rectangle && !GetComponent<PlayerMovement>().IsGrounded())))
+                {
+                    doAttract = false;
+                }
+            }
+        }
+        else
+        {
+            pissOff = true;
+        }
+        if (pissOff) 
         {
             if (attractor)
             {
                 attractor.Attract(myTransform);
             }
-            rigidbody.AddForce(-transform.up * 250); //player gravity without the actual gravity. I don't know its weird
+            if (doAttract)
+            {
+                rigidbody.AddForce(-transform.up * 250); //player gravity without the actual gravity. I don't know its weird
+            }
         }
     }
 
@@ -33,7 +54,10 @@ public class GravityBody : MonoBehaviour
     {
         if (col.gameObject.layer != 9)
         {
-            GetComponent<PlayerMovement>().canMove = false;
+            if (isPlayer)
+            {
+                GetComponent<PlayerMovement>().canMove = false;
+            }
             rigidbody.gravityScale = 0;
             rigidbody.velocity = new Vector2(0, 0);
             rigidbody.angularVelocity = 0;
@@ -47,7 +71,10 @@ public class GravityBody : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D col)
     {
-        GetComponent<PlayerMovement>().canMove = true;
+        if (isPlayer)
+        {
+            GetComponent<PlayerMovement>().canMove = true;
+        }
         rigidbody.gravityScale = 0;
         if (attractor.gameObject.name == gameObject.name)
         {
