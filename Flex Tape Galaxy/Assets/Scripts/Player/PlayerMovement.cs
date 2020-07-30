@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private int spinCooldown = 110;
     private bool airSpin = false; //whether or not the spin is done in the air or on the ground. this is used to do spin cooldown crap
     public bool flying = false;
+    private int jumpCooldown = 10; //once again i shouldn't have to make this int. But frickin physics and bad code required me to
 
     Rigidbody2D rigidBody;
     BoxCollider2D boxCollider;
@@ -54,14 +55,17 @@ public class PlayerMovement : MonoBehaviour
                 horizontalVel *= 0.1f;
                 //velChange = horizontalVel - previousHorizontalVel;
                 transform.position += new Vector3(horizontalVel.x * 0.25f, horizontalVel.y * 0.25f, horizontalVel.z * 0.25f);
+
+                jumpCooldown++;
                 if (IsGrounded() && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))) //jumping
                 {
                     rigidBody.AddForce(transform.up * jumpVel);
                     spinCooldown = 115;
+                    jumpCooldown = 0;
                 }
                 if (IsGrounded())
                 {
-                    if (!(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && horizontal == 0)
+                    if (!(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && horizontal == 0 && animator.GetBool("Jumping") == false)
                     {
                         rigidBody.velocity = new Vector2(0, 0);
                     }
@@ -80,7 +84,6 @@ public class PlayerMovement : MonoBehaviour
                 var change = absoluteValue * direction;
                 transform.localScale = new Vector2(change, transform.localScale.y);
                 animator.SetFloat("Speed", Mathf.Abs(horizontal * moveSpeed));
-
                 spinCooldown++;
                 var animationTime = 0.16f / 40;
                 if (!spinning)

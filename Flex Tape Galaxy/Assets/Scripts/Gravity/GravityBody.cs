@@ -52,7 +52,7 @@ public class GravityBody : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.layer != 9)
+        if (col.gameObject.layer != 9 && col.gameObject.tag != "NOT A PLANET")
         {
             if (isPlayer)
             {
@@ -71,14 +71,17 @@ public class GravityBody : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (isPlayer)
+        if (col.gameObject.tag != "NOT A PLANET")
         {
-            GetComponent<PlayerMovement>().canMove = true;
-        }
-        rigidbody.gravityScale = 0;
-        if (attractor.gameObject.name == gameObject.name)
-        {
-            attractor = null;
+            if (isPlayer)
+            {
+                GetComponent<PlayerMovement>().canMove = true;
+            }
+            rigidbody.gravityScale = 0;
+            if (attractor.gameObject.name == gameObject.name)
+            {
+                attractor = null;
+            }
         }
     }
 }
