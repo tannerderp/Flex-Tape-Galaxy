@@ -9,6 +9,7 @@ public class NPCcollide : MonoBehaviour
     private TextBox textBoxScript;
 
     [SerializeField] private string speaker;
+    [TextArea(15, 20)]
     [SerializeField] private string dialogue;
 
     private bool inTrigger = false;

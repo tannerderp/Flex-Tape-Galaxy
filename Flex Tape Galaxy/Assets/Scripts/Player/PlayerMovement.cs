@@ -40,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!LevelOver)
         {
-            Debug.Log("IM AN IDIOT");
             Movement();
         }
     }
