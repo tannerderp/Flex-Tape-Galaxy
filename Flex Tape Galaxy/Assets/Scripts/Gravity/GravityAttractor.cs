@@ -7,6 +7,8 @@ public class GravityAttractor : MonoBehaviour //The planet attracting objects wh
 
     [SerializeField] float gravity = 9.8f; //dont worry neither of these variables actually do anything
     [SerializeField] float rotationSmoothness = 5f;
+
+    [SerializeField] bool rotateCamera = false;
     public enum planetTypes //drop down list
     {
         sphere,
@@ -38,6 +40,10 @@ public class GravityAttractor : MonoBehaviour //The planet attracting objects wh
             {
                 body.rotation = new Quaternion(body.rotation.x, body.rotation.y, -transform.rotation.z, body.rotation.w);
             }
+        }
+        if (rotateCamera)
+        {
+            FindObjectOfType<Camera>().transform.rotation = body.rotation;
         }
     }
 }

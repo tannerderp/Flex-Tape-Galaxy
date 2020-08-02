@@ -20,32 +20,35 @@ public class GravityBody : MonoBehaviour
 
     void FixedUpdate()
     {
-        bool pissOff = false; //i hate every bit of this fixed updates. Why did I have to have this many if statements just so the enemies and player can have the same script for physics.
-        bool doAttract = true;
-        if (isPlayer)
+        if (!isPlayer || (isPlayer && !GetComponent<PlayerMovement>().LevelOver))
         {
-            if(!GetComponent<PlayerMovement>().flying)
+            bool pissOff = false; //i hate every bit of this fixed updates. Why did I have to have this many if statements just so the enemies and player can have the same script for physics.
+            bool doAttract = true;
+            if (isPlayer)
             {
-                pissOff = true;
-                if (attractor && !(attractor.planetType != GravityAttractor.planetTypes.rectangle || (isPlayer && attractor.planetType == GravityAttractor.planetTypes.rectangle && !GetComponent<PlayerMovement>().IsGrounded())))
+                if (!GetComponent<PlayerMovement>().flying)
                 {
-                    doAttract = false;
+                    pissOff = true;
+                    if (attractor && !(attractor.planetType != GravityAttractor.planetTypes.rectangle || (isPlayer && attractor.planetType == GravityAttractor.planetTypes.rectangle && !GetComponent<PlayerMovement>().IsGrounded())))
+                    {
+                        doAttract = false;
+                    }
                 }
             }
-        }
-        else
-        {
-            pissOff = true;
-        }
-        if (pissOff) 
-        {
-            if (attractor)
+            else
             {
-                attractor.Attract(myTransform);
+                pissOff = true;
             }
-            if (doAttract)
+            if (pissOff)
             {
-                rigidbody.AddForce(-transform.up * 250); //player gravity without the actual gravity. I don't know its weird
+                if (attractor)
+                {
+                    attractor.Attract(myTransform);
+                }
+                if (doAttract)
+                {
+                    rigidbody.AddForce(-transform.up * 250); //player gravity without the actual gravity. I don't know its weird
+                }
             }
         }
     }

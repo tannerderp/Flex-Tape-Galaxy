@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float direction = 1f;
     public bool canMove = true;
     public int health = 3;
+    public bool LevelOver = false;
 
     private Vector3 horizontalVel; //The velocity going left to right depending on the rotation of phil. Physics are weird.
     public bool spinning = false;
@@ -37,7 +38,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        if (!LevelOver)
+        {
+            Debug.Log("IM AN IDIOT");
+            Movement();
+        }
     }
 
     private void Movement()
@@ -71,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
                     }
                     animator.SetBool("Jumping", false);
                 }
-                else
+                else if(!LevelOver)
                 {
                     animator.SetBool("Jumping", true);
                 }
@@ -128,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if (IsGrounded() && rigidBody.velocity.y < 0)
+                if (IsGrounded() && rigidBody.velocity.y < 0.1)
                 {
                     //canMove = true;
                     animator.SetBool("Hurt", false);
@@ -154,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy" && animator.GetBool("Hurt") == false)
         {
-            if (!spinning)
+            if (!spinning && !LevelOver)
             {
                 rigidBody.velocity = new Vector2(0, 0);
                 float enemyDirection = -(collision.gameObject.transform.localScale.x / Mathf.Abs(collision.gameObject.transform.localScale.x));
