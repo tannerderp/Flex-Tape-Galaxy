@@ -408,9 +408,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: b2ecffffe6ecffff74eeffff24f6ffff26f8ffff62f8ffff6ef9ffff90f9ffff6efbffff
+      m_SelectedIDs: 40e1ffff
+      m_LastClickedID: -7872
+      m_ExpandedIDs: ced2ffff8ed8ffff40e1ffff00e9ffff76eaffffcceaffff80efffff00f7ffffd8f7ffff40f8ffff92f9ffff64faffff6efbffff3a38000042460000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -470,9 +470,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.8449562, y: 0.0020884238, z: -187.0768}
+    m_Target: {x: 23.979717, y: -16.11732, z: -14.1328125}
     speed: 2
-    m_Value: {x: 2.8449562, y: 0.0020884238, z: -187.0768}
+    m_Value: {x: 23.979717, y: -16.11732, z: -14.1328125}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -505,9 +505,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 16.529827
+    m_Target: 53.636932
     speed: 2
-    m_Value: 16.529827
+    m_Value: 53.636932
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -596,10 +596,10 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 0ace5ec183d4a05489a697e25ca613db,
+  m_AnimatorController: {fileID: 9100000, guid: 3839423ca85ceb04fa80456b88693f2e,
     type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -4371689720818231968, guid: 0ace5ec183d4a05489a697e25ca613db,
+  - m_Target: {fileID: 8473577246432875382, guid: 3839423ca85ceb04fa80456b88693f2e,
       type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
@@ -677,35 +677,35 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/World Objects
+    - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets/Scripts/World Objects
+  - Assets/Prefabs
   m_LastFoldersGridSize: 71
   m_LastProjectPath: C:\Users\tanne\Documents\Unity Repos\Flex Tape Galaxy\Flex Tape
     Galaxy
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 85}
-    m_SelectedIDs: ca2a0000
-    m_LastClickedID: 10954
-    m_ExpandedIDs: 000000009e290000cc290000e42b0000662c0000d82c00004e2d000000ca9a3b
+    scrollPos: {x: 0, y: 69}
+    m_SelectedIDs: d62a0000
+    m_LastClickedID: 10966
+    m_ExpandedIDs: 00000000a2290000d0290000f22b00007a2c0000ec2c0000642d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Phil Swift
+      m_OriginalName: Phil Swift
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 11604
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
@@ -719,7 +719,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009e290000cc290000e42b0000662c00004e2d0000
+    m_ExpandedIDs: 00000000a2290000d0290000f22b00007a2c0000642d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -828,7 +828,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 11874
+  m_LastSelectedObjectID: -5982
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52

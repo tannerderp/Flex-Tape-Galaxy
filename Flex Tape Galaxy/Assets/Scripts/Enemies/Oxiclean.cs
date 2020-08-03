@@ -49,4 +49,12 @@ public class Oxiclean : MonoBehaviour
     {
         OnScreen = false;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Enemy")
+        {
+            transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-1, 1, 1));
+        }
+    }
 }
