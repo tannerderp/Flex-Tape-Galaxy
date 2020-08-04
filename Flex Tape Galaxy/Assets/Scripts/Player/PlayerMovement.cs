@@ -69,9 +69,8 @@ public class PlayerMovement : MonoBehaviour
                 }
                 if (IsGrounded())
                 {
-                    if (!(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && horizontal == 0 && animator.GetBool("Jumping") == false && jumpCooldown > 10)
+                    if (!(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && horizontal == 0 && animator.GetBool("Jumping") == false && jumpCooldown > 20)
                     {
-                        Debug.Log("Dumb Jump");
                         rigidBody.velocity = new Vector2(0, 0);
                     }
                     animator.SetBool("Jumping", false);

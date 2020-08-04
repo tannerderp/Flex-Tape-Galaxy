@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - NOT A PLANET
   - Wall
+  - Moving Platform Trigger
   layers:
   - Default
   - TransparentFX

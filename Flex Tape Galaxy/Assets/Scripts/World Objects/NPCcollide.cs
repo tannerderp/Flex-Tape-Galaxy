@@ -47,11 +47,17 @@ public class NPCcollide : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        inTrigger = true;
+        if (collision.gameObject.name == "Phil Swift")
+        {
+            inTrigger = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        inTrigger = false;
+        if (collision.gameObject.name == "Phil Swift")
+        {
+            inTrigger = false;
+        }
     }
 }
