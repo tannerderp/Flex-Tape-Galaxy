@@ -113,7 +113,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 494}
   m_MaxSize: {x: 14004, y: 14044}
   vertical: 1
-  controlID: 40
+  controlID: 15
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 494}
   m_MaxSize: {x: 14004, y: 14044}
   vertical: 0
-  controlID: 41
+  controlID: 16
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 494}
   m_MaxSize: {x: 10002, y: 14044}
   vertical: 1
-  controlID: 42
+  controlID: 17
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 222}
   m_MaxSize: {x: 8006, y: 4022}
   vertical: 0
-  controlID: 43
+  controlID: 18
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -410,7 +410,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 8efbffff
       m_LastClickedID: -1138
-      m_ExpandedIDs: feefffff0cf9ffff8efbffff722e0000
+      m_ExpandedIDs: 64efffff72f2ffff88f5ffff82fbffff8efbffff9a2e0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -470,9 +470,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 225.02722, y: 30.901335, z: -34.723957}
+    m_Target: {x: 286.28238, y: 61.570393, z: -199.17969}
     speed: 2
-    m_Value: {x: 225.02722, y: 30.901335, z: -34.723957}
+    m_Value: {x: 286.28238, y: 61.570393, z: -199.17969}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -505,9 +505,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 38.229626
+    m_Target: 23.513731
     speed: 2
-    m_Value: 38.229626
+    m_Value: 23.513731
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -677,11 +677,11 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Sprites/Galaxies/Moon Fragment Galaxy
+    - Assets/Scripts/Enemies
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets/Sprites/Galaxies/Moon Fragment Galaxy
+  - Assets/Scripts/Enemies
   m_LastFoldersGridSize: 71
   m_LastProjectPath: C:\Users\tanne\Documents\Unity Repos\Flex Tape Galaxy\Flex Tape
     Galaxy
@@ -689,9 +689,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 69}
-    m_SelectedIDs: c02b0000
-    m_LastClickedID: 11200
-    m_ExpandedIDs: 00000000a2290000fe2b0000862c0000fa2c0000742d000000ca9a3b
+    m_SelectedIDs: a02b0000
+    m_LastClickedID: 11168
+    m_ExpandedIDs: 00000000a2290000fe2b0000862c0000fa2c0000782d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -719,7 +719,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000a2290000d0290000fe2b0000742d0000
+    m_ExpandedIDs: 00000000a2290000fe2b0000862c0000fa2c0000782d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
