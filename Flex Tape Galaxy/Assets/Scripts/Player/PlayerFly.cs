@@ -25,7 +25,7 @@ public class PlayerFly : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (GetComponent<PlayerMovement>().flying == true)
+        if (GetComponent<PlayerMovement>().flying == true && collision.gameObject.layer == 9)
         {
             targetObjectIndex++;
             if(targetObjectIndex > 1)
