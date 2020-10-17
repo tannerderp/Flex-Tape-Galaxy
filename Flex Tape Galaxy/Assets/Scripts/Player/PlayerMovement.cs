@@ -154,26 +154,56 @@ public class PlayerMovement : MonoBehaviour
         return boxCast.collider != null; 
     }
 
+    public void HurtPlayer(Collision2D collision)
+    {
+        rigidBody.velocity = new Vector2(0, 0);
+        float enemyDirection = -(collision.gameObject.transform.localScale.x / Mathf.Abs(collision.gameObject.transform.localScale.x));
+        direction = -enemyDirection;
+        transform.localScale = new Vector2(transform.localScale.x * direction, transform.localScale.y);
+        canMove = false;
+        animator.SetBool("Hurt", true);
+        transform.position += transform.up * 2;
+        rigidBody.AddForce(transform.right * -direction * 2000f);
+        health--;
+        GetComponent<PlaySound>().ExecuteSoundPlay(hurtSound);
+        FindObjectOfType<HealthMeter>().ChangeSprite(health);
+    }
+
+    public void BossHit() //man i wish i didn't have to be so inefficient because i cant call the hurtplayer function from another script because of the FRICKIN COLLISION DATA
+    {
+        rigidBody.velocity = new Vector2(0, 0);
+        float enemyDirection = direction;
+        direction = -enemyDirection;
+        transform.localScale = new Vector2(transform.localScale.x * direction, transform.localScale.y);
+        canMove = false;
+        animator.SetBool("Hurt", true);
+        transform.position += transform.up * 2;
+        rigidBody.AddForce(transform.right * -direction * 2000f);
+        health--;
+        GetComponent<PlaySound>().ExecuteSoundPlay(hurtSound);
+        FindObjectOfType<HealthMeter>().ChangeSprite(health);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy" && animator.GetBool("Hurt") == false)
+        if((collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Boss") && animator.GetBool("Hurt") == false)
         {
             if (!spinning && !LevelOver)
             {
-                rigidBody.velocity = new Vector2(0, 0);
-                float enemyDirection = -(collision.gameObject.transform.localScale.x / Mathf.Abs(collision.gameObject.transform.localScale.x));
-                direction = -enemyDirection;
-                transform.localScale = new Vector2(transform.localScale.x * direction, transform.localScale.y);
-                canMove = false;
-                animator.SetBool("Hurt", true);
-                transform.position += transform.up * 2;
-                rigidBody.AddForce(transform.right * -direction * 2000f);
-                //rigidBody.velocity = new Vector2(-direction * 8f, 8f);
-                health --;
-                GetComponent<PlaySound>().ExecuteSoundPlay(hurtSound);
-                FindObjectOfType<HealthMeter>().ChangeSprite(health);
+                HurtPlayer(collision);
             }
-            Destroy(collision.gameObject);
+            if (collision.gameObject.tag != "Boss")
+            {
+                Destroy(collision.gameObject);
+            }
         }
     }
+
+    /*private void OnTriggerEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag != "Boss")
+        {
+            HurtPlayer(collision);
+        }
+    }*/
 }

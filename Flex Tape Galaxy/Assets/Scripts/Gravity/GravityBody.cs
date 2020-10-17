@@ -81,9 +81,12 @@ public class GravityBody : MonoBehaviour
                 GetComponent<PlayerMovement>().canMove = true;
             }
             rigidbody.gravityScale = 0;
-            if (attractor.gameObject.name == gameObject.name)
+            if (attractor != null)
             {
-                attractor = null;
+                if (attractor.gameObject.name == gameObject.name)
+                {
+                    attractor = null;
+                }
             }
         }
     }

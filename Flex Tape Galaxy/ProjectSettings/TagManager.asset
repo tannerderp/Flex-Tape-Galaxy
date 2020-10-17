@@ -9,6 +9,7 @@ TagManager:
   - NOT A PLANET
   - Wall
   - Moving Platform Trigger
+  - Boss
   layers:
   - Default
   - TransparentFX
