@@ -7,9 +7,13 @@ public class DeathTrigger : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Phil Swift" || collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.name == "Phil Swift")
         {
             SceneManager.LoadScene("GameOver");
+        }
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Destroy(collision.gameObject);
         }
     }
 }

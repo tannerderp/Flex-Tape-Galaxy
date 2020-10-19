@@ -5,6 +5,8 @@ using UnityEngine;
 public class Arm : MonoBehaviour
 {
     public bool IsArmPhase = false;
+    [SerializeField] private GameObject OtherArm;
+    [SerializeField] private GameObject Boss;
     [SerializeField] private Sprite poppedSprite;
     [SerializeField] private int direction = 1;
     [SerializeField] private float slowMoveAmount = 4f;
@@ -39,6 +41,7 @@ public class Arm : MonoBehaviour
             }
             else
             {
+                transform.localPosition = originalPos;
                 IsArmPhase = false;
             }
         }
@@ -55,6 +58,10 @@ public class Arm : MonoBehaviour
                 if (IsArmPhase)
                 {
                     counter = 241;
+                }
+                if(OtherArm.GetComponent<Arm>().popped)
+                {
+                    Boss.GetComponent<ManOnTheMoon>().LoseHat();
                 }
             }
             else

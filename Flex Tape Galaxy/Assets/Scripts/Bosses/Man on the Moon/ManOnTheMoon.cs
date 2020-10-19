@@ -9,6 +9,9 @@ public class ManOnTheMoon : MonoBehaviour
     [SerializeField] private GameObject Player;
     [SerializeField] private GameObject LeftArm;
     [SerializeField] private GameObject RightArm;
+    [SerializeField] private GameObject Hat;
+    //sprites
+    [SerializeField] private Sprite NoHatSprite;
 
     //different positions
     //scale positions
@@ -18,6 +21,8 @@ public class ManOnTheMoon : MonoBehaviour
     private Vector3 AsteroidPos = new Vector3(0.57f, 5.251f, 0);
     private Vector3 HandSweepScale = new Vector3(2.539504f, 2.539504f, 2.539504f);
     private Vector3 HandSweepPos = new Vector3(0.5700111f, 14.5f, 0);
+    private Vector3 HeadStompPos1 = new Vector3(0.5700111f, -5.52f, 0);
+    private Vector3 HeadStompPos2 = new Vector3(0.5700111f, 12.8f, 0);
 
     private int mainCounter = 0;
     private int counter = 0;
@@ -44,6 +49,9 @@ public class ManOnTheMoon : MonoBehaviour
         } else if(currentPhase == "Hand Sweep")
         {
             HandSweepPhase();
+        } else if(currentPhase == "Head Stomp")
+        {
+            HeadStompPhase();
         }
     }
 
@@ -117,9 +125,27 @@ public class ManOnTheMoon : MonoBehaviour
             }
         }
     }
+    private void HeadStompPhase()
+    {
+        mainCounter++;
+        if(mainCounter <= 120)
+        {
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, HeadStompPos1, Time.deltaTime*6);
+        } else if(mainCounter == 121)
+        {
+            transform.localPosition = HeadStompPos2;
+            transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 180, 0);
+        } else if(mainCounter <= 240)
+        {
+            
+            Vector3 targetPos = new Vector3(Player.transform.position.x, transform.position.y, transform.position.z);
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * 8);
+        }
+    }
     private void InBetweenPhase()
     {
         counter++;
+        transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, 0, 0);
         if (transform.localScale != InBetween && transform.position != InBetweenPos)
         {
             transform.localScale = Vector3.MoveTowards(transform.localScale, InBetween, 1 * Time.deltaTime);
@@ -145,5 +171,12 @@ public class ManOnTheMoon : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void LoseHat()
+    {
+        GetComponent<SpriteRenderer>().sprite = NoHatSprite;
+        Hat.SetActive(true);
+        phases = new string[] { "Asteroid", "Hand Sweep", "Head Stomp"};
     }
 }
